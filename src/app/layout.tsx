@@ -1,6 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fredoka } from "next/font/google";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#fff8f3",
+};
 
 const fredoka = Fredoka({
   subsets: ["latin"],
@@ -27,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${fredoka.variable} min-h-screen antialiased [font-family:var(--font-landing),system-ui,sans-serif]`}
+        className={`${fredoka.variable} min-h-dvh antialiased [font-family:var(--font-landing),system-ui,sans-serif] [padding-bottom:env(safe-area-inset-bottom,0px)]`}
       >
         {children}
       </body>
