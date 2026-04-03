@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+/* Landing: soft motion (respects reduced motion) */
+@keyframes landing-drift-a {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(6%, 4%) scale(1.06);
+  }
+}
+
+@keyframes landing-drift-b {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1.02);
+  }
+  50% {
+    transform: translate(-5%, 6%) scale(1);
+  }
+}
+
+@keyframes landing-drift-c {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1.03);
+  }
+  50% {
+    transform: translate(4%, -5%) scale(0.98);
+  }
+}
+
+@keyframes landing-float-sticker {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .landing-blob-1 {
+    animation: landing-drift-a 24s ease-in-out infinite;
+  }
+  .landing-blob-2 {
+    animation: landing-drift-b 28s ease-in-out infinite;
+  }
+  .landing-blob-3 {
+    animation: landing-drift-c 32s ease-in-out infinite;
+  }
+  .landing-float {
+    animation: landing-float-sticker 5s ease-in-out infinite;
+  }
+  .landing-float-delayed {
+    animation: landing-float-sticker 5.5s ease-in-out infinite 0.8s;
+  }
+}
