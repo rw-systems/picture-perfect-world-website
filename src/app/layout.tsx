@@ -15,15 +15,19 @@ const fredoka = Fredoka({
   display: "swap",
 });
 
-/** Canonical URL for OG / iMessage / social previews (override with NEXT_PUBLIC_SITE_URL). */
+/**
+ * Canonical host for og:url, og:image, Twitter cards, and iMessage previews.
+ * Do not use VERCEL_URL here — it is the per-deployment hostname and breaks previews.
+ * Override for previews/staging: NEXT_PUBLIC_SITE_URL=https://staging.example.com
+ */
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "https://picture-perfect-world-website.vercel.app");
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://pictureperfectworld.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  alternates: {
+    canonical: "/",
+  },
   title: "PicturePerfectWorld — Coming Summer 2026",
   description:
     "Turn real rooms into playful worlds. A kid-friendly creative game inspired by the joy of open-ended play.",
