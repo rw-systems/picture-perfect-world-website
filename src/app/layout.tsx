@@ -35,12 +35,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "/",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "PicturePerfectWorld — Launching Summer 2026",
+        type: "image/png",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "PicturePerfectWorld",
     description:
       "Launching Summer 2026. Playful worlds from real rooms.",
+    images: ["/og.png"],
   },
 };
 
